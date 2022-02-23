@@ -1,5 +1,5 @@
 {% set name = "gtk-4-fortran" %}
-{% set version = "4.1.0" %}
+{% set version = "20.04.gtk3.24.18" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/vmagnin/gtk-fortran/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: a172ac76d691d9fd83ad3b61751cfd362b3909ec0886876445200063c14c6707
+  sha256: e12616d250246317442b2db9161a76cbbca67d737925746623a9f80f88727fdf
   patches:
     - cmake.patch
 
@@ -19,11 +19,7 @@ build:
     - export FFLAGS="${FFLAGS} -ffree-line-length-none"  # [unix]
     - set PKG_CONFIG_PATH=%PREFIX%\Library\lib\pkgconfig;%PREFIX%\lib\pkgconfig  # [win]
     - >
-       cmake
-       ${CMAKE_ARGS}  # [unix]
-       -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX%  # [win]
-       -B_build
-       -GNinja
+      cmake ${CMAKE_ARGS}  # [unix] -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX%  # [win] -B_build -GNinja
     - cmake --build _build
     - ctest --test-dir _build -R '^(regex|pixbuf_without_gui|tests)$'
     - cmake --install _build
