@@ -23,7 +23,7 @@ build:
        -B_build
        -GNinja
     - cmake --build _build
-    - ctest --test-dir _build -R '^(regex|pixbuf_without_gui|tests)$'
+    - ctest --test-dir _build -R '^(regex|pixbuf_without_gui|tests)$' --output-on-failure
     - cmake --install _build
 
   run_exports:
