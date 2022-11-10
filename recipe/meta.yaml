@@ -1,5 +1,5 @@
 {% set name = "gtk-4-fortran" %}
-{% set version = "4.2.1" %}
+{% set version = "4.3.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/vmagnin/gtk-fortran/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 69df408a44a5771505d89e1d1518f4f061b3a90f615758776d08f66d34bb93d0
+  sha256: ed6db3cd1f7a5be366f7c3e8bb715f113d3218e7ab836ae3fac096932de201c7
 
 build:
   number: 0
@@ -60,11 +60,10 @@ about:
   license_file: LICENSE
   summary: GTK / Fortran bindings
   description: |
-    The gtk-fortran project aims to offer scientists programming in Fortran a
-    cross-platform library to build Graphical User Interfaces (GUI).
-    Gtk-fortran is a partial GTK / Fortran binding 100% written in Fortran, thanks
-    to the ISO_C_BINDING module for interoperability between C and Fortran, which
-    is a part of the Fortran 2003 standard.
+    The gtk-fortran project provides bindings to the Fortran language
+    for the GTK libraries (GTK, Cairo, GdkPixbuf, GLib...) and is 
+    licensed under GNU GPLv3. Like GTK and Fortran, it is
+    cross-platform (Linux, macOS, BSD, Windows).
 
 extra:
   recipe-maintainers:
