@@ -3,7 +3,7 @@ About gtk-4-fortran
 
 Home: https://github.com/vmagnin/gtk-fortran
 
-Package license: GPL-3.0-or-later
+Package license: GPL-3.0-or-later with GCC Runtime Library Exception 3.1
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gtk-4-fortran-feedstock/blob/master/LICENSE.txt)
 
@@ -14,8 +14,7 @@ Documentation: https://github.com/vmagnin/gtk-fortran/wiki
 The gtk-fortran project aims to offer scientists programming in Fortran a
 cross-platform library to build Graphical User Interfaces (GUI).
 Gtk-fortran is a partial GTK / Fortran binding 100% written in Fortran, thanks
-to the ISO_C_BINDING module for interoperability between C and Fortran, which
-is a part of the Fortran 2003 standard.
+to the ISO_C_BINDING module for interoperability between C and Fortran.
 
 
 Current build status

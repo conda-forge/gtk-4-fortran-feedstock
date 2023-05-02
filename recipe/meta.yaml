@@ -1,5 +1,5 @@
 {% set name = "gtk-4-fortran" %}
-{% set version = "4.3.0" %}
+{% set version = "4.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/vmagnin/gtk-fortran/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: ed6db3cd1f7a5be366f7c3e8bb715f113d3218e7ab836ae3fac096932de201c7
+  sha256: 83622b1c690a52a919a4b0d1c4f1513e2beef024230cac8bcdb9a3e028acc8e7
 
 build:
   number: 0
@@ -56,8 +56,10 @@ test:
 about:
   home: https://github.com/vmagnin/gtk-fortran
   doc_url: https://github.com/vmagnin/gtk-fortran/wiki
-  license: GPL-3.0-or-later
-  license_file: LICENSE
+  license: GPL-3.0-or-later WITH GCC-exception-3.1
+  license_file:
+    - LICENSE
+    - LICENSE_EXCEPTION
   summary: GTK / Fortran bindings
   description: |
     The gtk-fortran project provides bindings to the Fortran language
