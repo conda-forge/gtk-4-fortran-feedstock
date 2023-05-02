@@ -1,21 +1,20 @@
-About gtk-4-fortran
-===================
+About gtk-4-fortran-feedstock
+=============================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gtk-4-fortran-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/vmagnin/gtk-fortran
 
-Package license: GPL-3.0-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gtk-4-fortran-feedstock/blob/master/LICENSE.txt)
+Package license: GPL-3.0-or-later WITH GCC-exception-3.1
 
 Summary: GTK / Fortran bindings
 
 Documentation: https://github.com/vmagnin/gtk-fortran/wiki
 
-The gtk-fortran project aims to offer scientists programming in Fortran a
-cross-platform library to build Graphical User Interfaces (GUI).
-Gtk-fortran is a partial GTK / Fortran binding 100% written in Fortran, thanks
-to the ISO_C_BINDING module for interoperability between C and Fortran, which
-is a part of the Fortran 2003 standard.
+The gtk-fortran project provides bindings to the Fortran language
+for the GTK libraries (GTK, Cairo, GdkPixbuf, GLib...) and is
+licensed under GNU GPLv3. Like GTK and Fortran, it is
+cross-platform (Linux, macOS, BSD, Windows).
 
 
 Current build status
@@ -29,8 +28,8 @@ Current build status
     <td>
       <details>
         <summary>
-          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15521&branchName=master">
-            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gtk-4-fortran-feedstock?branchName=master">
+          <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15521&branchName=main">
+            <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gtk-4-fortran-feedstock?branchName=main">
           </a>
         </summary>
         <table>
@@ -38,15 +37,15 @@ Current build status
           <tbody><tr>
               <td>linux_64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15521&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gtk-4-fortran-feedstock?branchName=master&jobName=linux&configuration=linux_64_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15521&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gtk-4-fortran-feedstock?branchName=main&jobName=linux&configuration=linux%20linux_64_" alt="variant">
                 </a>
               </td>
             </tr><tr>
               <td>osx_64</td>
               <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15521&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gtk-4-fortran-feedstock?branchName=master&jobName=osx&configuration=osx_64_" alt="variant">
+                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=15521&branchName=main">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gtk-4-fortran-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
                 </a>
               </td>
             </tr>
