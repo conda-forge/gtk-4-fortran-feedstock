@@ -1,5 +1,5 @@
 {% set name = "gtk-4-fortran" %}
-{% set version = "4.7.1" %}
+{% set version = "4.8.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/vmagnin/gtk-fortran/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: 65e179c96d8ae17b818463dc1ea10c340e55ab9690f63e5af2726781abeba055
+  sha256: dce6b2119f741c2a278938005f9a257d70224a0b7b932c4094655d5adb824bba
 
 build:
   number: 0
