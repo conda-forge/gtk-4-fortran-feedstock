@@ -17,11 +17,7 @@ build:
     - export FFLAGS="${FFLAGS} -ffree-line-length-none"  # [unix]
     - set PKG_CONFIG_PATH=%PREFIX%\Library\lib\pkgconfig;%PREFIX%\lib\pkgconfig  # [win]
     - >
-       cmake
-       ${CMAKE_ARGS}  # [unix]
-       -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX%  # [win]
-       -B_build
-       -GNinja
+      cmake ${CMAKE_ARGS}  # [unix] -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX%  # [win] -B_build -GNinja
     - cmake --build _build
     - ctest --test-dir _build -R '^(regex|pixbuf_without_gui|tests)$'
     - cmake --install _build
