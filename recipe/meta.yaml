@@ -13,15 +13,12 @@ build:
   number: 0
   skip: true  # [win]
   script:
-    - set -ex  # [unix]
-    - export FFLAGS="${FFLAGS} -ffree-line-length-none"  # [unix]
-    - set PKG_CONFIG_PATH=%PREFIX%\Library\lib\pkgconfig;%PREFIX%\lib\pkgconfig  # [win]
-    - >
-      cmake ${CMAKE_ARGS}  # [unix] -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX%  # [win] -B_build -GNinja
+    - set -ex
+    - export FFLAGS="${FFLAGS} -ffree-line-length-none"
+    - cmake ${CMAKE_ARGS} -B_build -GNinja
     - cmake --build _build
     - ctest --test-dir _build -R '^(regex|pixbuf_without_gui|tests)$'
     - cmake --install _build
-
   run_exports:
     - {{ pin_subpackage(name, max_pin='x') }}
   ignore_run_exports:
@@ -30,8 +27,7 @@ build:
 requirements:
   build:
     - {{ stdlib("c") }}
-    - {{ compiler('fortran') }}  # [unix]
-    - {{ compiler('m2w64_fortran') }}  # [win]
+    - {{ compiler('fortran') }}
     - cmake
     - ninja
     - pkg-config
