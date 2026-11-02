@@ -36,6 +36,7 @@ requirements:
     - glib
     - gtk4
     - plplot
+    - zlib
   run:
     - gdk-pixbuf
     - cairo
