@@ -44,6 +44,8 @@ requirements:
 test:
   requires:
     - pkg-config
+    - glib
+    - zlib
   commands:
     - pkg-config --exact-version {{ version }} {{ name }}
     - test -f $PREFIX/lib/lib{{ name }}$SHLIB_EXT  # [unix]
