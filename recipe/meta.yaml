@@ -15,7 +15,8 @@ build:
   script:
     - set -ex
     - export FFLAGS="${FFLAGS} -ffree-line-length-none"
-    - cmake ${CMAKE_ARGS} -B_build -GNinja
+    - cmake ${CMAKE_ARGS} -B_build -GNinja -DCMAKE_Fortran_FLAGS_RELEASE:STRING=-O3  # [osx_arm64]
+    - cmake ${CMAKE_ARGS} -B_build -GNinja  # [not osx_arm64]
     - cmake --build _build
     - |
       if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "1" ]]; then
