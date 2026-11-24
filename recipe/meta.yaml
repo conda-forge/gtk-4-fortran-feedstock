@@ -17,7 +17,10 @@ build:
     - export FFLAGS="${FFLAGS} -ffree-line-length-none"
     - cmake ${CMAKE_ARGS} -B_build -GNinja
     - cmake --build _build
-    - ctest --test-dir _build -R '^(regex|pixbuf_without_gui|tests)$'
+    - |
+      if [[ "${CONDA_BUILD_CROSS_COMPILATION:-}" != "1" || "${CROSSCOMPILING_EMULATOR:-}" != "" ]]; then
+        ctest --test-dir _build -R '^(regex|pixbuf_without_gui|tests)$'
+      fi
     - cmake --install _build
   run_exports:
     - {{ pin_subpackage(name, max_pin='x') }}
