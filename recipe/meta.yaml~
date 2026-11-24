@@ -1,0 +1,71 @@
+{% set name = "gtk-4-fortran" %}
+{% set version = "4.8.0" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/vmagnin/gtk-fortran/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: dce6b2119f741c2a278938005f9a257d70224a0b7b932c4094655d5adb824bba
+
+build:
+  number: 0
+  skip: true  # [win]
+  script:
+    - set -ex  # [unix]
+    - export FFLAGS="${FFLAGS} -ffree-line-length-none"  # [unix]
+    - set PKG_CONFIG_PATH=%PREFIX%\Library\lib\pkgconfig;%PREFIX%\lib\pkgconfig  # [win]
+    - >
+      cmake ${CMAKE_ARGS}  # [unix] -DCMAKE_INSTALL_PREFIX=%LIBRARY_PREFIX%  # [win] -B_build -GNinja
+    - cmake --build _build
+    - ctest --test-dir _build -R '^(regex|pixbuf_without_gui|tests)$'
+    - cmake --install _build
+
+  run_exports:
+    - {{ pin_subpackage(name, max_pin='x') }}
+  ignore_run_exports:
+    - plplot
+
+requirements:
+  build:
+    - {{ stdlib("c") }}
+    - {{ compiler('fortran') }}  # [unix]
+    - {{ compiler('m2w64_fortran') }}  # [win]
+    - cmake
+    - ninja
+    - pkg-config
+  host:
+    - expat
+    - glib
+    - gtk4
+    - plplot
+  run:
+    - gdk-pixbuf
+    - cairo
+
+test:
+  requires:
+    - pkg-config
+  commands:
+    - pkg-config --exact-version {{ version }} {{ name }}
+    - test -f $PREFIX/lib/lib{{ name }}$SHLIB_EXT  # [unix]
+
+about:
+  home: https://github.com/vmagnin/gtk-fortran
+  doc_url: https://github.com/vmagnin/gtk-fortran/wiki
+  license: GPL-3.0-or-later WITH GCC-exception-3.1
+  license_file:
+    - LICENSE
+    - LICENSE_EXCEPTION
+  summary: GTK / Fortran bindings
+  description: |
+    The gtk-fortran project provides bindings to the Fortran language
+    for the GTK libraries (GTK, Cairo, GdkPixbuf, GLib...) and is 
+    licensed under GNU GPLv3. Like GTK and Fortran, it is
+    cross-platform (Linux, macOS, BSD, Windows).
+
+extra:
+  recipe-maintainers:
+    - awvwgk
+    - vmagnin
