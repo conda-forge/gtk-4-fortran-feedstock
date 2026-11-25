@@ -33,7 +33,7 @@ requirements:
     - {{ compiler('fortran') }}
     - cmake
     - ninja
-    - pkg-config
+    - pkgconf
   host:
     - expat
     - glib
@@ -46,12 +46,12 @@ requirements:
 
 test:
   requires:
-    - pkg-config
+    - pkgconf
     - glib
     - zlib
     - expat
   commands:
-    - pkg-config --exact-version {{ version }} {{ name }}
+    - pkgconf --exact-version {{ version }} {{ name }}
     - test -f $PREFIX/lib/lib{{ name }}$SHLIB_EXT  # [unix]
 
 about:
