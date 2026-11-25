@@ -15,8 +15,7 @@ build:
   script:
     - set -ex
     - export FFLAGS="${FFLAGS} -ffree-line-length-none"
-    - cmake ${CMAKE_ARGS} -B_build -GNinja -DCMAKE_Fortran_FLAGS_RELEASE:STRING=-O3  # [osx_arm64]
-    - cmake ${CMAKE_ARGS} -B_build -GNinja  # [not osx_arm64]
+    - cmake ${CMAKE_ARGS} -B_build -GNinja
     - cmake --build _build
     - |
       if [[ "${CONDA_BUILD_CROSS_COMPILATION:-0}" != "1" ]]; then
@@ -34,7 +33,7 @@ requirements:
     - {{ compiler('fortran') }}
     - cmake
     - ninja
-    - pkg-config
+    - pkgconf
   host:
     - expat
     - glib
@@ -47,12 +46,12 @@ requirements:
 
 test:
   requires:
-    - pkg-config
+    - pkgconf
     - glib
     - zlib
     - expat
   commands:
-    - pkg-config --exact-version {{ version }} {{ name }}
+    - pkgconf --exact-version {{ version }} {{ name }}
     - test -f $PREFIX/lib/lib{{ name }}$SHLIB_EXT  # [unix]
 
 about:
